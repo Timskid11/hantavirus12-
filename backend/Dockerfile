@@ -1,7 +1,7 @@
 FROM gcc:13 AS build
 WORKDIR /app
 COPY . .
-RUN g++ -std=c++17 -O2 -I include -pthread main.cpp DiagnosticEngine.cpp -o hantavirus_server
+RUN g++ -std=c++17 -O2 -I include -pthread -static-libstdc++ -static-libgcc main.cpp DiagnosticEngine.cpp -o hantavirus_server
 
 FROM debian:bookworm-slim
 WORKDIR /app
