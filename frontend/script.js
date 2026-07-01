@@ -1,7 +1,7 @@
 // Point this at your backend's URL.
 // Local dev: http://localhost:8080
 // Deployed on Render: something like https://hantavirus-api.onrender.com
-const API_BASE = "http://localhost:8080";
+const API_BASE = "https://hantavirus12.onrender.com";
 
 const earlyContainer = document.getElementById("early-symptoms");
 const lateContainer = document.getElementById("late-symptoms");
