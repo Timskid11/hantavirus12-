@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hantavirus Risk Assessment — Case File</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="sheet">
+
+  <header class="case-header">
+    <div class="case-header__top">
+      <span class="tag">CASE FILE</span>
+      <span id="case-number" class="case-number">NO. ——</span>
+    </div>
+    <h1>Hantavirus Risk Assessment</h1>
+    <p class="subhead">Symptom &amp; exposure intake — reviewed by the diagnostic engine, not a clinician.</p>
+  </header>
+
+  <main class="grid">
+
+    <section class="panel intake" aria-labelledby="intake-heading">
+      <h2 id="intake-heading" class="panel__title">01 &nbsp;Intake</h2>
+
+      <form id="diagnostic-form">
+
+        <fieldset class="phase-block">
+          <legend>Early phase <span class="legend__note">(first 1–2 weeks)</span></legend>
+          <div id="early-symptoms" class="checklist" data-phase="early"></div>
+        </fieldset>
+
+        <fieldset class="phase-block phase-block--late">
+          <legend>Late phase <span class="legend__note">(cardiopulmonary — days later)</span></legend>
+          <div id="late-symptoms" class="checklist" data-phase="late"></div>
+        </fieldset>
+
+        <fieldset class="phase-block">
+          <legend>Exposure history</legend>
+          <div class="checklist">
+            <label class="check">
+              <input type="checkbox" id="rodentExposure">
+              <span>Direct contact with rodents or rodent droppings</span>
+            </label>
+            <label class="check">
+              <input type="checkbox" id="ruralOrEnclosedSpaceExposure">
+              <span>Time in rural, wooded, or enclosed structures (cabins, barns, sheds)</span>
+            </label>
+            <label class="check">
+              <input type="checkbox" id="recentCleaningOfEnclosedSpace">
+              <span>Recently swept, vacuumed, or disturbed dust in an enclosed space</span>
+            </label>
+          </div>
+        </fieldset>
+
+        <button type="submit" class="submit-btn">Run assessment</button>
+        <p id="form-error" class="form-error" role="alert"></p>
+      </form>
+    </section>
+
+    <section class="panel result" aria-labelledby="result-heading">
+      <h2 id="result-heading" class="panel__title">02 &nbsp;Findings</h2>
+
+      <div id="result-empty" class="result-empty">
+        <p>No assessment has been run yet.</p>
+        <p>Complete the intake and select <strong>Run assessment</strong> to generate findings.</p>
+      </div>
+
+      <div id="result-content" class="result-content" hidden>
+        <div class="stamp-wrap">
+          <div id="stamp" class="stamp">
+            <span id="stamp-text">LOW</span>
+          </div>
+        </div>
+
+        <dl class="readout">
+          <div>
+            <dt>Composite score</dt>
+            <dd id="score-value" class="mono">0</dd>
+          </div>
+          <div>
+            <dt>Late-stage symptoms</dt>
+            <dd id="late-value" class="mono">NO</dd>
+          </div>
+          <div>
+            <dt>Exposure confirmed</dt>
+            <dd id="exposure-value" class="mono">NO</dd>
+          </div>
+        </dl>
+
+        <div class="flagged-block">
+          <h3>Flagged symptoms</h3>
+          <ul id="flagged-list"></ul>
+        </div>
+
+        <div class="recommendation-block">
+          <h3>Recommendation</h3>
+          <p id="recommendation-text"></p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="case-footer">
+    <p>Generated locally from reported symptoms and exposure. This is a student diagnostic tool, not a substitute for medical evaluation.</p>
+  </footer>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
